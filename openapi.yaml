@@ -1,0 +1,62 @@
+openapi: 3.0.3
+info:
+  title: Text Messaging API
+  description: An API to send text messages.
+  version: 1.0.0
+
+servers:
+  - url: https://uqkhm6qwl5.execute-api.us-east-2.amazonaws.com
+    description: Main server
+
+paths:
+  /sendText:
+    post:
+      summary: Send a text message
+      description: Endpoint to send a text message using the provided name, phone number, and message.
+      operationId: sendText
+      security:
+        - api_key: []
+
+      requestBody:
+        description: The message payload with recipient details.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Name of the recipient
+                phone_number:
+                  type: string
+                  description: Phone number of the recipient
+                message:
+                  type: string
+                  description: The message to be sent
+              required:
+                - name
+                - phone_number
+                - message
+
+      responses:
+        '200':
+          description: Message sent successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                required:
+                  - success
+
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: API key needed to access the endpoints
