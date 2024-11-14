@@ -41,7 +41,7 @@ paths:
 
       responses:
         '200':
-          description: Message sent successfully
+          description: Thank you! We will send you a text soon!
           content:
             application/json:
               schema:
