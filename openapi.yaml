@@ -27,10 +27,10 @@ paths:
               properties:
                 name:
                   type: string
-                  description: Name of the recipient
+                  description: Name of the customer
                 phone_number:
                   type: string
-                  description: Phone number of the recipient
+                  description: Phone number of the customer
                 message:
                   type: string
                   description: The message to be sent
