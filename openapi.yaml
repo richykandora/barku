@@ -11,14 +11,14 @@ servers:
 paths:
   /sendText:
     post:
-      summary: Send a text message
-      description: Endpoint to send a text message using the provided name, phone number, and message.
+      summary: Send a text message to BARK U
+      description: Endpoint to send a text message to BARK U using the provided name, phone number, and message.
       operationId: sendText
       security:
         - api_key: []
 
       requestBody:
-        description: The message payload with recipient details.
+        description: The message payload with customer details.
         required: true
         content:
           application/json:
@@ -41,7 +41,7 @@ paths:
 
       responses:
         '200':
-          description: Thank you! We will send you a text soon!
+          description: Thank you! Your request was sent to BARK U!
           content:
             application/json:
               schema:
