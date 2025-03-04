@@ -1,8 +1,8 @@
 openapi: 3.0.3
 info:
   title: Text Messaging API
-  description: An API to send text messages.
-  version: 1.0.0
+  description: An API to send requests to Bark U.
+  version: 1.1.0
 
 servers:
   - url: https://uqkhm6qwl5.execute-api.us-east-2.amazonaws.com
@@ -11,14 +11,14 @@ servers:
 paths:
   /sendText:
     post:
-      summary: Send a text message to BARK U
-      description: Endpoint to send a text message to BARK U using the provided name, phone number, and message.
+      summary: Send a request to BARK U
+      description: Endpoint to send a request to BARK U using the provided name, phone number, and contact type.
       operationId: sendText
       security:
         - api_key: []
 
       requestBody:
-        description: The message payload with customer details.
+        description: The payload with customer details.
         required: true
         content:
           application/json:
@@ -31,13 +31,13 @@ paths:
                 phone_number:
                   type: string
                   description: Phone number of the customer
-                message:
+                contact_type:
                   type: string
-                  description: The message to be sent
+                  description: The contact type the customer requests
               required:
                 - name
                 - phone_number
-                - message
+                - contact_type
 
       responses:
         '200':
